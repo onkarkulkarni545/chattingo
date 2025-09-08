@@ -2,7 +2,7 @@
 FROM node:18-alpine AS deps
 WORKDIR /app
 COPY package.json yarn.lock* ./
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 # Stage 2: Build assets
 FROM node:18-alpine AS builder
